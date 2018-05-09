@@ -14,3 +14,4 @@ product_delete:
     path:     /remove/{id}
     defaults: { _controller: FrontalBundle:Default:delete }
     
+   
