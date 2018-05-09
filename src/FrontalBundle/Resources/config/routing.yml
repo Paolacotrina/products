@@ -1,0 +1,16 @@
+frontal_homepage:
+    path:     /
+    defaults: { _controller: FrontalBundle:Default:index }
+    
+new_product:
+    path:     /
+    defaults: { _controller: FrontalBundle:Default:new }
+    
+product_view:    
+    path:     /{id}
+    defaults: { _controller: FrontalBundle:Default:view }
+    
+product_delete:    
+    path:     /remove/{id}
+    defaults: { _controller: FrontalBundle:Default:delete }
+    

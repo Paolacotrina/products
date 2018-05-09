@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js" ></script>
+
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" ></script>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" >
+<script>
+	$(document).ready(function() {
+			$('#products').DataTable();
+			
+		} );
+		
+		
+</script>
+<div class="card">
+	<div class="card-header"> Crear Productos	</div>
+			<div class="card-body">
+	
+			</div>
+
+
+</div>
+
+<div class="card">
+	<div class="card-header">Lista Productos	</div>
+			<div class="card-body">
+
+	<table class='table table-bordered' id='products'>
+	<thead>
+	<tr>
+	<th>Id</th>
+	<th>Nombre</th>
+	<th>Detalle</th>
+	<th>Marca</th>
+	<th>Categoria</th>
+	<th>Precio</th>
+	<th>Ver</th>
+	<th>Eliminar</th>
+	</tr>
+	</thead>
+	<tbody>
+	{% for product in products %}
+		<tr>
+			<td>{{ product.id }}</td>
+			 <td>{{ product.name }}</td>
+			 <td>{{ product.detail }}</td>
+			 <td>{{ product.brand }}</td>
+			 <td>{{ product.category }}</td>
+			 <td>{{ product.price }}</td>
+			 <td>
+			 <a href="{{path('product_view',{id: product.id})}}" class="btn btn-dark">
+			 {{'Consultar'|trans}}
+			 </a>
+			 </td>
+			 <td>
+			 <a href="{{path('product_delete',{id: product.id})}}" class="btn btn-danger" >
+			 {{'Eliminar Producto'|trans}}
+			 </a></td>
+		</tr>
+	{% else %}
+		<tr>
+			<td>No hay resultados.</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+	</table>
+	</div>
+</div>
